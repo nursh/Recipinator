@@ -4,13 +4,18 @@
   "description": "",
   "main": "rating.js",
   "scripts": {
+    "start:server": "nodemon app",
     "build": "webpack --env production",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\""
   },
   "author": "nur-sh",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
     "express": "^4.15.4",
+    "helmet": "^3.8.1",
+    "ms": "^2.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2"
@@ -22,6 +27,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
     "clean-webpack-plugin": "^0.1.16",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
@@ -32,6 +38,7 @@
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "image-webpack-loader": "^3.4.1",
+    "morgan": "^1.8.2",
     "nodemon": "^1.11.0",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.5",

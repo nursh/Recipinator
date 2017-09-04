@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BabiliWebpackPlugin = require('babili-webpack-plugin');
 
 
 exports.devServer = path => ({
@@ -30,7 +31,7 @@ exports.minifyJavascript = () => ({
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new BabiliWebpackPlugin(),
   ],
 });
 
