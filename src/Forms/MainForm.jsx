@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
-function MainForm() {
+function MainForm(props) {
   return (
-    <form className="ui form">
+    <form className="ui form" onSubmit={props.onSubmit}>
 
       <div className="required field">
         <label htmlFor="title">Recipe Title</label>
@@ -38,12 +39,8 @@ function MainForm() {
       </div>
 
       <div className="field">
-        <button type="button" className="ui teal labeled icon button left floated">
-          <i className="arrow left icon" />
-          Previous
-        </button>
 
-        <button type="button" className="ui teal right labeled icon button right floated">
+        <button type="submit" className="ui teal right labeled icon button right floated">
           Next
           <i className="arrow right icon" />
         </button>
@@ -54,5 +51,9 @@ function MainForm() {
     </form>
   );
 }
+
+MainForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default MainForm;

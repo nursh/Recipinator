@@ -16,6 +16,7 @@
     "express": "^4.15.4",
     "helmet": "^3.8.1",
     "ms": "^2.0.0",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2"
