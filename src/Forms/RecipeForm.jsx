@@ -3,6 +3,7 @@ import React from 'react';
 
 import MainForm from './MainForm.jsx';
 import IngredientForm from './IngredientForm.jsx';
+import DirectionForm from './DirectionForm.jsx';
 
 function RecipeForm() {
   return (
@@ -17,7 +18,8 @@ function RecipeForm() {
                 Recipinator
               </h2>
               {/* <MainForm /> */}
-              <IngredientForm />
+              {/* <IngredientForm /> */}
+              <DirectionForm />
             </div>
           </div>
         </div>
