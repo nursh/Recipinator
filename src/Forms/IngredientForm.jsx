@@ -5,7 +5,7 @@ function IngredientForm() {
   return (
     <form className="ui form">
 
-      <div className="field">
+      <div className="required field">
         <label htmlFor="ingredient">Ingredient</label>
         <input type="text" name="ingredient" id="ingredient" placeholder="Ingredient" />
       </div>

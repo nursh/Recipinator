@@ -5,7 +5,7 @@ function MainForm() {
   return (
     <form className="ui form">
 
-      <div className="field">
+      <div className="required field">
         <label htmlFor="title">Recipe Title</label>
         <input type="text" name="title" id="title" placeholder="Recipe Title" />
       </div>
@@ -20,7 +20,7 @@ function MainForm() {
         />
       </div>
 
-      <div className="two fields">
+      <div className="required two fields">
         <div className="field">
           <label htmlFor="prep">Prep Time</label>
           <input type="number" name="prep" id="prep" placeholder="Prep Time in mins" />

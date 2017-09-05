@@ -18,10 +18,10 @@ function RecipeForm() {
               <h2 className="ui teal horizontal divider header">
                 Recipinator
               </h2>
-              {/* <MainForm /> */}
+              <MainForm />
               {/* <IngredientForm /> */}
               {/* <DirectionForm /> */}
-              <KeywordForm />
+              {/* <KeywordForm /> */}
             </div>
           </div>
         </div>
