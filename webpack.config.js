@@ -33,7 +33,7 @@ const commonConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      favicon: 'pizza.ico',
+      favicon: 'book.ico',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
