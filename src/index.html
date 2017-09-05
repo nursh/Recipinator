@@ -6,85 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
   <title>Recipinator</title>
-  <link rel="icon" href="./pizza.png">
 </head>
 <body>
-
-  <div class="ui sidebar left vertical menu">
-    <div class="ui input focus item">
-      <input type="text" placeholder="Search for recipe...">
-    </div>
-    <a class="item">
-      View recipes
-    </a>
-    <a class="item">
-      Add a recipe
-    </a>
-  </div>
-
-  <div class="pusher">
-
-    <!-- Top menu bar -->
-    <div class="ui grid">
-      <div class="column">
-        <div class="ui huge pointing secondary menu">
-          <a class="item open button"> <i class="sidebar icon"></i></a>
-          <div class="header item">Recipitopia</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Form for adding a recipe -->
-    <div class="ui container">
-      <div class="ui grid centered">
-
-
-
-          <div class="row">
-            <div class="sixteen wide mobile eight wide computer column">
-              <div class="ui very raised teal segment">
-                <h2 class="ui teal horizontal divider header">
-                  Recipinator
-                </h2>
-
-                <form class="ui form">
-
-                  <div class="field">
-                    <label>Recipe Title</label>
-                    <input type="text" name="title" placeholder="Recipe Title">
-                  </div>
-
-                  <div class="field">
-                    <label>Recipe Description</label>
-                    <textarea rows="3" placeholder="Enter Recipe Description" name="description"></textarea>
-                  </div>
-
-                  <div class="two fields">
-                    <div class="field">
-                      <label>Prep Time</label>
-                      <input type="number" name="prep" placeholder="Prep Time in mins">
-                    </div>
-
-                    <div class="field">
-                      <label>Cooking Time</label>
-                      <input type="number" name="cooking" placeholder="Cooking Time in mins">
-                    </div>
-                  </div>  
-
-                  <div class="field">
-                    <input type="submit" class="ui teal button fluid" value="Create Recipe" />
-                  </div>
-                </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-  </div>
-  <div id="app"></div>
+  <div id="root"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
 </body>

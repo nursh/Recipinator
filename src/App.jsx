@@ -2,17 +2,21 @@ import React from 'react';
 import { render } from 'react-dom';
 
 
-import './js/app';
+import './js/index';
+import MainPage from './MainPage.jsx';
+import Sidebar from './Sidebar.jsx';
+
 
 function App() {
   return (
     <div>
-      Hello Baby
+      <Sidebar />
+      <MainPage />
     </div>
   );
 }
 
 render(
   <App />,
-  document.getElementById('app'),
+  document.querySelector('#root'),
 );
