@@ -2,6 +2,7 @@ import React from 'react';
 
 
 import MainForm from './MainForm.jsx';
+import IngredientForm from './IngredientForm.jsx';
 
 function RecipeForm() {
   return (
@@ -15,7 +16,8 @@ function RecipeForm() {
               <h2 className="ui teal horizontal divider header">
                 Recipinator
               </h2>
-              <MainForm />
+              {/* <MainForm /> */}
+              <IngredientForm />
             </div>
           </div>
         </div>

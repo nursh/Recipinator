@@ -11,6 +11,18 @@ function IngredientForm() {
       </div>
 
       <div className="field">
+        <button type="button" className="ui orange button fluid">
+          Add Ingredient
+        </button>
+      </div>
+
+      <div className="field">
+        <h3 className="ui horizontal divider header">
+          View Ingredients
+        </h3>
+      </div>
+
+      <div className="field">
         <button type="button" className="ui teal labeled icon button left floated">
           <i className="arrow left icon" />
           Previous
