@@ -62,6 +62,7 @@ const productionConfig = merge([
       name: '[name].[ext]',
     },
   }),
+  parts.serviceWorker(),
 ]);
 
 const developmentConfig = merge([

@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabiliWebpackPlugin = require('babili-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 
 exports.devServer = path => ({
@@ -21,6 +22,17 @@ exports.generateSourceMaps = ({ type }) => ({ devtool: type });
 exports.clean = path => ({
   plugins: [
     new CleanWebpackPlugin([path]),
+  ],
+});
+
+exports.serviceWorker = () => ({
+  plugins: [
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'Async app',
+      mergeStaticsConfig: true,
+      minify: true,
+      staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+    }),
   ],
 });
 

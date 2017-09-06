@@ -8,6 +8,9 @@ import Sidebar from './Sidebar.jsx';
 
 
 function App() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
   return (
     <div>
       <Sidebar />

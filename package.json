@@ -4,7 +4,7 @@
   "description": "",
   "main": "rating.js",
   "scripts": {
-    "start:server": "nodemon app",
+    "server": "nodemon app",
     "build": "webpack --env production",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\""
   },
@@ -41,6 +41,7 @@
     "image-webpack-loader": "^3.4.1",
     "morgan": "^1.8.2",
     "nodemon": "^1.11.0",
+    "sw-precache-webpack-plugin": "^0.11.4",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1",
