@@ -1,43 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function KeywordForm(props) {
-  return (
-    <form className="ui form" onSubmit={props.onSubmit}>
 
-      <div className="required field">
-        <label htmlFor="keyword">Keyword</label>
-        <input type="text" name="keyword" id="keyword" placeholder="Keyword" />
-      </div>
+import Field from './Field.jsx';
 
-      <div className="field">
-        <button type="button" className="ui orange button fluid">
-          Add Keyword
-        </button>
-      </div>
+class KeywordForm extends React.Component {
+  state = {
+    keyword: '',
+    keywords: [],
+  }
 
-      <div className="field">
-        <h3 className="ui horizontal divider header">
-          View Keywords
-        </h3>
-      </div>
+  render() {
+    return (
+      <form className="ui form" onSubmit={this.props.onSubmit}>
+        <Field
+          placeholder="Keyword"
+          name="keyword"
+          value={this.state.keyword}
+        />
 
-      <div className="field">
-        <button type="button" className="ui teal labeled icon button left floated" onClick={props.onPreviousPage}>
-          <i className="arrow left icon" />
-          Previous
-        </button>
+        <div className="field">
+          <button type="button" className="ui orange button fluid">
+            Add Keyword
+          </button>
+        </div>
 
-        <button type="submit" className="ui teal right labeled icon button right floated">
-          <i className="file text outline icon" />
-          Create Recipe
-        </button>
-      </div>
+        <div className="field">
+          <h3 className="ui horizontal divider header">
+            View Keywords
+          </h3>
+        </div>
 
-      <div className="field" />
+        <div className="field">
+          <button
+            type="button"
+            className="ui teal labeled icon button left floated"
+            onClick={this.props.onPreviousPage}
+          >
+            <i className="arrow left icon" />
+            Previous
+          </button>
 
-    </form>
-  );
+          <button type="submit" className="ui teal right labeled icon button right floated">
+            <i className="file text outline icon" />
+            Create Recipe
+          </button>
+        </div>
+
+        <div className="field" />
+
+      </form>
+    );
+  }
 }
 
 KeywordForm.propTypes = {

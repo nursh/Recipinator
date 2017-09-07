@@ -2,43 +2,53 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-function IngredientForm(props) {
-  return (
-    <form className="ui form" onSubmit={props.onSubmit}>
+import Field from './Field.jsx';
 
-      <div className="required field">
-        <label htmlFor="ingredient">Ingredient</label>
-        <input type="text" name="ingredient" id="ingredient" placeholder="Ingredient" />
-      </div>
+class IngredientForm extends React.Component {
+  state = {
+    ingredient: '',
+    ingredients: [],
+  };
 
-      <div className="field">
-        <button type="button" className="ui orange button fluid">
-          Add Ingredient
-        </button>
-      </div>
+  render() {
+    return (
+      <form className="ui form" onSubmit={this.props.onSubmit}>
 
-      <div className="field">
-        <h3 className="ui horizontal divider header">
-          View Ingredients
-        </h3>
-      </div>
+        <Field
+          placeholder="Ingredient"
+          name="ingredient"
+          value={this.state.ingredient}
+        />
 
-      <div className="field">
-        <button type="button" className="ui teal labeled icon button left floated" onClick={props.onPreviousPage}>
-          <i className="arrow left icon" />
-          Previous
-        </button>
+        <div className="field">
+          <button type="button" className="ui orange button fluid">
+            Add Ingredient
+          </button>
+        </div>
 
-        <button type="submit" className="ui teal right labeled icon button right floated">
-          Next
-          <i className="arrow right icon" />
-        </button>
-      </div>
+        <div className="field">
+          <h3 className="ui horizontal divider header">
+            View Ingredients
+          </h3>
+        </div>
 
-      <div className="field" />
+        <div className="field">
+          <button type="button" className="ui teal labeled icon button left floated" onClick={this.props.onPreviousPage}>
+            <i className="arrow left icon" />
+            Previous
+          </button>
 
-    </form>
-  );
+          <button type="submit" className="ui teal right labeled icon button right floated">
+            Next
+            <i className="arrow right icon" />
+          </button>
+        </div>
+
+        <div className="field" />
+
+      </form>
+    );
+  }
 }
 
 IngredientForm.propTypes = {

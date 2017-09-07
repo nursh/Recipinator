@@ -22,5 +22,9 @@ app.use(compression());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.post('/recipe', (req, res) => {
+  res.status(200).send({ item: 'success' });
+});
+
 
 app.listen(port, () => console.log('app is running'));
