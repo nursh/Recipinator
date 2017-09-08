@@ -51,6 +51,7 @@ const commonConfig = {
     new webpack.HashedModuleIdsPlugin(),
     new CopyWebpackPlugin([
       { from: 'manifest.json', to: 'manifest.json' },
+      { from: './images', to: './images' },
     ]),
   ],
 
