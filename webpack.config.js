@@ -34,7 +34,7 @@ const commonConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      favicon: 'book.ico',
+      favicon: 'recipe.ico',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
@@ -51,7 +51,6 @@ const commonConfig = {
     new webpack.HashedModuleIdsPlugin(),
     new CopyWebpackPlugin([
       { from: 'manifest.json', to: 'manifest.json' },
-      { from: './images', to: './images' },
     ]),
   ],
 

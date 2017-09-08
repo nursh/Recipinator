@@ -11,7 +11,7 @@ function Sidebar() {
         View recipes
       </a>
       <a className="item">
-        Add a recipe
+        Create recipe
       </a>
     </div>
   );
