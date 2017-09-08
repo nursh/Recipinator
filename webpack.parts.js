@@ -35,7 +35,7 @@ exports.serviceWorker = () => ({
       cacheId: 'Async app',
       mergeStaticsConfig: true,
       minify: true,
-      staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+      staticFileGlobsIgnorePatterns: [/\.map$/],
     }),
   ],
 });

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 const parts = require('./webpack.parts');
@@ -48,6 +49,9 @@ const commonConfig = {
       minChunks: Infinity,
     }),
     new webpack.HashedModuleIdsPlugin(),
+    new CopyWebpackPlugin([
+      { from: 'manifest.json', to: 'manifest.json' },
+    ]),
   ],
 
 };
