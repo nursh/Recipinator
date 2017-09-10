@@ -1,17 +1,22 @@
 import React from 'react';
-import { } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Sidebar } from 'semantic-ui-react';
 
 import Header from './Header.jsx';
 import RecipeForm from './Forms/RecipeForm.jsx';
 
 
-function MainPage() {
+function MainPage(props) {
   return (
-    <div className="pusher">
-      <Header />
+    <Sidebar.Pusher>
+      <Header toggleVisibility={props.toggleVisibility} />
       <RecipeForm />
-    </div>
+    </Sidebar.Pusher>
   );
 }
+
+MainPage.propTypes = {
+  toggleVisibility: PropTypes.func.isRequired,
+};
 
 export default MainPage;

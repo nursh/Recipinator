@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Form } from 'semantic-ui-react';
 
 
 export default class Field extends Component {
@@ -45,13 +46,8 @@ export default class Field extends Component {
 
   render() {
     return (
-      <div className="required field">
-        <label
-          htmlFor={this.props.name}
-        >
-          {this.props.placeholder}
-        </label>
-
+      <Form.Field required>
+        <label htmlFor={this.props.name}>{this.props.placeholder}</label>
         <input
           type="text"
           name={this.props.name}
@@ -60,11 +56,12 @@ export default class Field extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
+      </Form.Field>
 
-        <div className={`ui negative hidden message ${this.props.name}`}>
-          <p>{this.state.error}</p>
-        </div>
-      </div>
+      //   <div className={`ui negative hidden message ${this.props.name}`}>
+      //     <p>{this.state.error}</p>
+      //   </div>
+      // </div>
     );
   }
 }

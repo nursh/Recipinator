@@ -1,14 +1,12 @@
 import React from 'react';
-import { Sidebar, Menu, Input } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Sidebar, Menu } from 'semantic-ui-react';
 
-function SideNav() {
+function SideNav(props) {
   return (
-    <Sidebar as={Menu} animation="push" vertical>
-      <Menu.Item>
-        <Input
-          icon={{ name: 'search', circular: true, link: true }}
-          placeholder="Search for recipe..."
-        />
+    <Sidebar as={Menu} animation="push" visible={props.visible} vertical>
+      <Menu.Item header>
+        Recipitopia
       </Menu.Item>
       <Menu.Item>
         View Recipes
@@ -19,5 +17,9 @@ function SideNav() {
     </Sidebar>
   );
 }
+
+SideNav.propTypes = {
+  visible: PropTypes.bool.isRequired,
+};
 
 export default SideNav;

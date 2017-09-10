@@ -3,22 +3,10 @@ import Loadable from 'react-loadable';
 
 
 import MainForm from './MainForm.jsx';
+import IngredientForm from './IngredientForm.jsx';
+import DirectionForm from './DirectionForm.jsx';
+import KeywordForm from './KeywordForm.jsx';
 import { store } from './formState';
-
-const IngredientForm = Loadable({
-  loader: () => import('./IngredientForm.jsx'),
-  loading: () => null,
-});
-
-const DirectionForm = Loadable({
-  loader: () => import('./DirectionForm.jsx'),
-  loading: () => null,
-});
-
-const KeywordForm = Loadable({
-  loader: () => import('./KeywordForm.jsx'),
-  loading: () => null,
-});
 
 class RecipeForm extends Component {
   state = {
