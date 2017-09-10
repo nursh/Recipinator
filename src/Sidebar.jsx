@@ -1,20 +1,23 @@
 import React from 'react';
+import { Sidebar, Menu, Icon, Input } from 'semantic-ui-react';
 
-
-function Sidebar() {
+function SidebarMain() {
   return (
-    <div className="ui sidebar left vertical menu">
-      <div className="ui input focus item">
-        <input type="text" placeholder="Search for recipe..." />
-      </div>
-      <a className="item">
-        View recipes
-      </a>
-      <a className="item">
-        Create recipe
-      </a>
-    </div>
+    <Sidebar as={Menu} animation="push" vertical>
+      <Menu.Item>
+        <Input
+          icon={{ name: 'search', circular: true, link: true }}
+          placeholder="Search for recipe..."
+        />
+      </Menu.Item>
+      <Menu.Item>
+        View Recipes
+      </Menu.Item>
+      <Menu.Item>
+        Create Recipe
+      </Menu.Item>
+    </Sidebar>
   );
 }
 
-export default Sidebar;
+export default SidebarMain;

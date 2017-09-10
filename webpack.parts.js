@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabiliWebpackPlugin = require('babili-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 
 exports.devServer = path => ({
@@ -48,6 +49,18 @@ exports.minifyJavascript = () => ({
       },
     }),
     new BabiliWebpackPlugin(),
+  ],
+});
+
+exports.compressFiles = () => ({
+  plugins: [
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css|html)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
   ],
 });
 

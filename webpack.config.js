@@ -35,6 +35,10 @@ const commonConfig = {
       filename: 'index.html',
       template: 'index.html',
       favicon: 'recipe.ico',
+      minify: {
+        collapseWhitespace: true,
+      },
+      hash: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
@@ -52,6 +56,7 @@ const commonConfig = {
     new CopyWebpackPlugin([
       { from: 'manifest.json', to: 'manifest.json' },
     ]),
+
   ],
 
 };
@@ -66,6 +71,7 @@ const productionConfig = merge([
       name: '[name].[ext]',
     },
   }),
+  parts.compressFiles(),
   parts.serviceWorker(),
 ]);
 

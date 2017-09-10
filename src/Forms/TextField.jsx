@@ -7,7 +7,6 @@ export default class TextField extends Component {
     super(props);
     this.state = {
       value: this.props.value,
-      error: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -20,34 +19,20 @@ export default class TextField extends Component {
     const name = this.props.name;
     const value = evt.target.value;
 
-    const inValue = (name === 'activity' || name === 'target') ?
-      value.split(' ').join('') :
-      value;
-    const error = this.props.validate(inValue);
-
-    const showErrorMessage = document.querySelector(`.message.${name}`);
-    if (error) {
-      showErrorMessage.classList.remove('hidden');
-    } else {
-      showErrorMessage.classList.add('hidden');
-    }
-
 
     this.setState({
       value,
-      error,
     });
-    this.context.handleChange({
+    this.props.handleChange({
       name,
       value,
-      error,
     });
   }
 
 
   render() {
     return (
-      <div className="field">
+      <div className="required field">
         <label
           htmlFor={this.props.name}
         >
@@ -55,12 +40,13 @@ export default class TextField extends Component {
         </label>
 
         <textarea
-          rows="3"
+          type="text"
           name={this.props.name}
           id={this.props.name}
           placeholder={this.props.placeholder}
           value={this.state.value}
           onChange={this.handleChange}
+          rows="3"
         />
 
         <div className={`ui negative hidden message ${this.props.name}`}>
@@ -76,4 +62,5 @@ TextField.propTypes = {
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   validate: PropTypes.func,
+  handleChange: PropTypes.func,
 };

@@ -3,59 +3,47 @@ import Loadable from 'react-loadable';
 
 
 import MainForm from './MainForm.jsx';
+import { store } from './formState';
 
 const IngredientForm = Loadable({
-  loader: () => System.import('./IngredientForm.jsx'),
+  loader: () => import('./IngredientForm.jsx'),
   loading: () => null,
 });
 
 const DirectionForm = Loadable({
-  loader: () => System.import('./DirectionForm.jsx'),
+  loader: () => import('./DirectionForm.jsx'),
   loading: () => null,
 });
 
 const KeywordForm = Loadable({
-  loader: () => System.import('./KeywordForm.jsx'),
+  loader: () => import('./KeywordForm.jsx'),
   loading: () => null,
 });
 
 class RecipeForm extends Component {
   state = {
     page: 1,
-    fields: {
-      title: '',
-      description: '',
-      imageUrl: '',
-      prepTime: '',
-      cookTime: '',
-      ingredients: [],
-      directions: [],
-    },
-    fieldErrors: {}
   };
 
-  nextPage = () => this.setState(prevState => ({ page: prevState.page + 1 }));
+  nextPage = () => {
+    this.setState(prevState => ({ page: prevState.page + 1 }))
+  };
 
-  previousPage = () => this.setState(prevState => ({ page: prevState.page - 1 }));
+  prevPage = () => {
+    this.setState(prevState => ({ page: prevState.page - 1 }));
+  }
+
+  componentDidMount() {
+    store.subscribe(() => this.forceUpdate());
+  }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    if (this.validate()) return;
+    alert('done');
 
-    const recipe = this.state.fields;
-    this.setState({
-      fields: {
-        title: '',
-        description: '',
-        imageUrl: '',
-        prepTime: '',
-        cookTime: '',
-        ingredients: [],
-        directions: [],
-      },
-      fieldErrors: {},
-    });
-    this.postData(recipe);
+    const recipe = store.getState();
+    console.log(recipe);
+    // this.postData(recipe);
   }
 
   postData = (recipe) => {
@@ -71,22 +59,9 @@ class RecipeForm extends Component {
     .catch(err => console.error(err));
   }
 
-  validate = () => {
-    const recipe = this.state.fields;
-    const fieldErrors = this.state.fieldErrors;
-    const errorMessages = Object.keys(fieldErrors).filter(k => fieldErrors[k]);
-
-    // for (const prop in recipe) {
-    //   if (prop !== 'weight') {
-    //     if (!workout[prop]) return true;
-    //   }
-    // }
-
-    if (errorMessages.length) return true;
-    return false;
-  }
-
   render() {
+    const formData = store.getState();
+    const { main, ingredients, keywords, directions } = formData;
     return (
       <div className="ui container">
         <div className="ui grid centered">
@@ -99,16 +74,31 @@ class RecipeForm extends Component {
                   Recipinator
                 </h2>
                 { this.state.page === 1 &&
-                <MainForm onSubmit={this.nextPage} /> }
+                <MainForm
+                  onNextPage={this.nextPage}
+                  main={main}
+                /> }
 
                 { this.state.page === 2 &&
-                <IngredientForm onPreviousPage={this.previousPage} onSubmit={this.nextPage} /> }
+                <IngredientForm
+                  onPrevPage={this.prevPage}
+                  onNextPage={this.nextPage}
+                  ingredients={ingredients}
+                /> }
 
                 { this.state.page === 3 &&
-                <DirectionForm onPreviousPage={this.previousPage} onSubmit={this.nextPage} /> }
+                <DirectionForm
+                  onPrevPage={this.prevPage}
+                  onNextPage={this.nextPage}
+                  directions={directions}
+                /> }
 
                 { this.state.page === 4 &&
-                <KeywordForm onPreviousPage={this.previousPage} onSubmit={this.handleSubmit} /> }
+                <KeywordForm
+                  onPrevPage={this.prevPage}
+                  onSubmit={this.handleSubmit}
+                  keywords={keywords}
+                /> }
               </div>
             </div>
           </div>

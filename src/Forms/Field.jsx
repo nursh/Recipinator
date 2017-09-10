@@ -20,27 +20,25 @@ export default class Field extends Component {
     const name = this.props.name;
     const value = evt.target.value;
 
-    const inValue = (name === 'activity' || name === 'target') ?
-      value.split(' ').join('') :
-      value;
-    const error = this.props.validate(inValue);
+    // const inValue = (name === 'title') ?
+    //   value.split(' ').join('') :
+    //   value;
+    // const error = this.props.validate(inValue);
 
-    const showErrorMessage = document.querySelector(`.message.${name}`);
-    if (error) {
-      showErrorMessage.classList.remove('hidden');
-    } else {
-      showErrorMessage.classList.add('hidden');
-    }
+    // const showErrorMessage = document.querySelector(`.message.${name}`);
+    // if (error) {
+    //   showErrorMessage.classList.remove('hidden');
+    // } else {
+    //   showErrorMessage.classList.add('hidden');
+    // }
 
 
     this.setState({
       value,
-      error,
     });
-    this.context.handleChange({
+    this.props.handleChange({
       name,
       value,
-      error,
     });
   }
 
@@ -76,4 +74,5 @@ Field.propTypes = {
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   validate: PropTypes.func,
+  handleChange: PropTypes.func,
 };
