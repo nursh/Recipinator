@@ -1,7 +1,7 @@
 import React from 'react';
-import { Sidebar, Menu, Icon, Input } from 'semantic-ui-react';
+import { Sidebar, Menu, Input } from 'semantic-ui-react';
 
-function SidebarMain() {
+function SideNav() {
   return (
     <Sidebar as={Menu} animation="push" vertical>
       <Menu.Item>
@@ -20,4 +20,4 @@ function SidebarMain() {
   );
 }
 
-export default SidebarMain;
+export default SideNav;

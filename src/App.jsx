@@ -2,9 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 
 
-import './js/index';
 import MainPage from './MainPage.jsx';
-import Sidebar from './Sidebar.jsx';
+import SideNav from './SideNav.jsx';
 
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
   // }
   return (
     <div>
-      <Sidebar />
+      <SideNav />
       <MainPage />
     </div>
   );
