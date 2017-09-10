@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Form, Button, Header, Divider, List } from 'semantic-ui-react';
 
 
 import Field from './Field.jsx';
@@ -25,55 +26,50 @@ class IngredientForm extends React.Component {
 
   render() {
     const ingredients = this.props.ingredients
-      .map((item, index) => <div className="item" key={index}>{item}</div>);
+      .map((item, index) => <List.Item key={index}>{item}</List.Item>);
     return (
-      <form className="ui form" onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
+        <Field
+          placeholder="Ingredient"
+          name="ingredient"
+          value={this.state.ingredient}
+          handleChange={this.handleChange}
+        />
 
-        <div className="required field">
-          <Field
-            placeholder="Ingredient"
-            name="ingredient"
-            value={this.state.ingredient}
-            handleChange={this.handleChange}
-          />
-        </div>
+        <Form.Field>
+          <Button fluid color="orange" type="submit">Add Ingredient</Button>
+        </Form.Field>
 
-        <div className="field">
-          <button type="submit" className="ui orange button fluid">
-            Add Ingredient
-          </button>
-        </div>
+        <Form.Field>
+          <Header as="h3">
+            <Divider horizontal>View Directions</Divider>
+          </Header>
+          <List bulleted>{ingredients}</List>
+        </Form.Field>
 
-        <div className="field">
-          <h3 className="ui horizontal divider header">
-            View Ingredients
-          </h3>
-          <div className="ui bulleted list">{ingredients}</div>
-        </div>
-
-        <div className="field">
-          <button
-            type="button"
-            className="ui teal labeled icon button left floated"
+        <Form.Field>
+          <Button
+            color="teal"
+            floated="left"
+            labelPosition="left"
+            icon="arrow left"
             onClick={this.props.onPrevPage}
-          >
-            <i className="arrow left icon" />
-            Previous
-          </button>
-
-          <button
+            content="Previous"
             type="button"
-            className="ui teal right labeled icon button right floated"
+          />
+          <Button
+            color="teal"
+            floated="right"
+            labelPosition="right"
+            icon="arrow right"
             onClick={this.props.onNextPage}
-          >
-            Next
-            <i className="arrow right icon" />
-          </button>
-        </div>
+            content="Next"
+            type="button"
+          />
+        </Form.Field>
 
-        <div className="field" />
-
-      </form>
+        <Form.Field />
+      </Form>
     );
   }
 }

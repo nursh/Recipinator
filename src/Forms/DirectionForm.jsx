@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Form, Button, Header, Divider, List } from 'semantic-ui-react';
 
 
 import TextField from './TextField.jsx';
@@ -24,10 +25,9 @@ class DirectionForm extends React.Component {
 
   render() {
     const directions = this.props.directions
-      .map((item, index) => <div className="item" key={index}>{item}</div>);
+      .map((item, index) => <List.Item key={index} as="li">{item}</List.Item>);
     return (
-      <form className="ui form" onSubmit={this.handleSubmit}>
-
+      <Form onSubmit={this.handleSubmit}>
         <TextField
           placeholder="Direction"
           name="direction"
@@ -35,42 +35,40 @@ class DirectionForm extends React.Component {
           value={this.state.direction}
         />
 
-        <div className="field">
-          <button type="submit" className="ui orange button fluid">
-            Add Direction
-          </button>
-        </div>
+        <Form.Field>
+          <Button fluid color="orange" type="submit">Add Direction</Button>
+        </Form.Field>
 
-        <div className="field">
-          <h3 className="ui horizontal divider header">
-            View Directions
-          </h3>
-          <div className="ui ordered list">{directions}</div>
-        </div>
+        <Form.Field>
+          <Header as="h3">
+            <Divider horizontal>View Directions</Divider>
+          </Header>
+          <List as="ol">{directions}</List>
+        </Form.Field>
 
-        <div className="field">
-          <button
-            type="button"
-            className="ui teal labeled icon button left floated"
+        <Form.Field>
+          <Button
+            color="teal"
+            floated="left"
+            labelPosition="left"
+            icon="arrow left"
             onClick={this.props.onPrevPage}
-          >
-            <i className="arrow left icon" />
-            Previous
-          </button>
-
-          <button
+            content="Previous"
             type="button"
-            className="ui teal right labeled icon button right floated"
+          />
+          <Button
+            color="teal"
+            floated="right"
+            labelPosition="right"
+            icon="arrow right"
             onClick={this.props.onNextPage}
-          >
-            Next
-            <i className="arrow right icon" />
-          </button>
-        </div>
+            content="Next"
+            type="button"
+          />
+        </Form.Field>
 
-        <div className="field" />
-
-      </form>
+        <Form.Field />
+      </Form>
     );
   }
 }
