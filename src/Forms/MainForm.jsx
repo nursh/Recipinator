@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Form, Button, Header, Divider, List } from 'semantic-ui-react';
 
 import Field from './Field.jsx';
 import TextField from './TextField.jsx';
@@ -19,13 +19,12 @@ class MainForm extends React.Component {
   };
 
   handleChange = ({ name, value }) => {
-    const { fields, fieldErrors } = this.state;
+    const { fields } = this.state;
 
     fields[name] = value;
 
     this.setState({
       fields,
-      fieldErrors,
     });
   }
 
@@ -37,8 +36,7 @@ class MainForm extends React.Component {
 
   render() {
     return (
-      <form className="ui form" onSubmit={this.handleSubmit}>
-
+      <Form onSubmit={this.handleSubmit}>
         <Field
           placeholder="Recipe Title"
           name="title"
@@ -61,35 +59,35 @@ class MainForm extends React.Component {
           handleChange={this.handleChange}
         />
 
-        <div className="two fields">
-          <Field
-            placeholder="Prep Time in mins"
-            name="prepTime"
-            value={this.state.fields.prepTime}
-            handleChange={this.handleChange}
-          />
+        <Form.Group widths="equal">
+           <Field
+             placeholder="Prep Time in mins"
+             name="prepTime"
+             value={this.state.fields.prepTime}
+             handleChange={this.handleChange}
+           />
 
-          <Field
-            placeholder="Cooking Time in mins"
-            name="cookingTime"
-            value={this.state.fields.cookingTime}
-            handleChange={this.handleChange}
-          />
-        </div>
+           <Field
+             placeholder="Cooking Time in mins"
+             name="cookingTime"
+             value={this.state.fields.cookingTime}
+             handleChange={this.handleChange}
+           />
+        </Form.Group>
 
-        <div className="field">
-          <button
+        <Form.Field>
+          <Button
+            color="teal"
+            floated="right"
+            labelPosition="right"
+            icon="arrow right"
+            content="Next"
             type="submit"
-            className="ui teal right labeled icon button right floated"
-          >
-            Next
-            <i className="arrow right icon" />
-          </button>
-        </div>
+          />
+        </Form.Field>
 
-        <div className="field" />
-
-      </form>
+        <Form.Field />
+      </Form>
     );
   }
 }

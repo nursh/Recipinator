@@ -40,7 +40,7 @@ class KeywordForm extends React.Component {
 
         <Form.Field>
           <Header as="h3">
-            <Divider horizontal>View Keywords</Divider>
+            <Divider horizontal>List of Keywords</Divider>
           </Header>
           <List bulleted>{keywords}</List>
         </Form.Field>

@@ -41,7 +41,7 @@ class DirectionForm extends React.Component {
 
         <Form.Field>
           <Header as="h3">
-            <Divider horizontal>View Directions</Divider>
+            <Divider horizontal>Directions</Divider>
           </Header>
           <List as="ol">{directions}</List>
         </Form.Field>

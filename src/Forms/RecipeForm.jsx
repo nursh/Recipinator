@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Loadable from 'react-loadable';
-
+import { Header, Grid, Container, Segment } from 'semantic-ui-react';
 
 import MainForm from './MainForm.jsx';
 import IngredientForm from './IngredientForm.jsx';
@@ -51,16 +51,16 @@ class RecipeForm extends Component {
     const formData = store.getState();
     const { main, ingredients, keywords, directions } = formData;
     return (
-      <div className="ui container">
-        <div className="ui grid centered">
+      <Container>
+        <Grid centered>
+          <Grid.Row>
+            <Grid.Column mobile={16} tablet={12} computer={8}>
+              <Segment color="teal" raised>
 
-          <div className="row">
-            <div className="sixteen wide mobile twelve wide tablet eight wide computer column">
-              <div className="ui very raised teal segment">
-
-                <h2 className="ui teal horizontal divider header">
+                <Header as="h2" color="teal" textAlign="center">
                   Recipinator
-                </h2>
+                </Header>
+
                 { this.state.page === 1 &&
                 <MainForm
                   onNextPage={this.nextPage}
@@ -87,12 +87,11 @@ class RecipeForm extends Component {
                   onSubmit={this.handleSubmit}
                   keywords={keywords}
                 /> }
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+              </Segment>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     );
   }
 }

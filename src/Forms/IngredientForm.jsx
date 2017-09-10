@@ -42,7 +42,7 @@ class IngredientForm extends React.Component {
 
         <Form.Field>
           <Header as="h3">
-            <Divider horizontal>View Directions</Divider>
+            <Divider horizontal>List of Ingredients</Divider>
           </Header>
           <List bulleted>{ingredients}</List>
         </Form.Field>
