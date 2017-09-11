@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Header, Divider, List } from 'semantic-ui-react';
+import { Form, Button, Header, Divider, List, Input } from 'semantic-ui-react';
 
 import Field from './Field.jsx';
 import TextField from './TextField.jsx';
@@ -20,12 +20,15 @@ class MainForm extends React.Component {
 
   handleChange = ({ name, value }) => {
     const { fields } = this.state;
-
     fields[name] = value;
-
     this.setState({
       fields,
     });
+  }
+
+  handleImage = (evt) => {
+    const { name, value } = evt.target;
+    this.handleChange({ name, value });
   }
 
   handleSubmit = (evt) => {
@@ -45,19 +48,23 @@ class MainForm extends React.Component {
         />
 
         <TextField
-          placeholder="Enter Recipe Description"
+          placeholder="Recipe Description"
           name="description"
           value={this.state.fields.description}
           handleChange={this.handleChange}
         />
+        
+        <Form.Field required>
+          <label htmlFor="imageUrl">ImageUrl</label>
+          <Input
+            name="imageUrl"
+            type="file"
+            id="imageUrl"
+            accept="image/*"
+            onChange={this.handleImage}
+          />
+        </Form.Field>
 
-
-        <Field
-          placeholder="Image Url"
-          name="imageUrl"
-          value={this.state.fields.imageUrl}
-          handleChange={this.handleChange}
-        />
 
         <Form.Group widths="equal">
            <Field
