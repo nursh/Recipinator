@@ -11,7 +11,7 @@ class MainForm extends React.Component {
     fields: {
       title: this.props.main.title,
       description: this.props.main.description,
-      imageUrl: this.props.main.imageUrl,
+      imageFile: this.props.main.imageFile,
       prepTime: this.props.main.prepTime,
       cookingTime: this.props.main.cookingTime,
     },
@@ -55,11 +55,11 @@ class MainForm extends React.Component {
         />
         
         <Form.Field required>
-          <label htmlFor="imageUrl">ImageUrl</label>
+          <label htmlFor="imageFile">Image File</label>
           <Input
-            name="imageUrl"
+            name="imageFile"
             type="file"
-            id="imageUrl"
+            id="imageFile"
             accept="image/*"
             onChange={this.handleImage}
           />

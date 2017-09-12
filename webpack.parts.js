@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabiliWebpackPlugin = require('babili-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const CompressionPlugin = require("compression-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 
 exports.devServer = path => ({
@@ -68,7 +68,7 @@ exports.loadImages = ({ options } = {}) => ({
   module: {
     rules: [
       {
-        test: /\.(png|jpg|svg)$/,
+        test: /\.(png|jpg|svg|ico)$/,
         use: {
           loader: 'url-loader',
           options,

@@ -27,6 +27,7 @@ const commonConfig = {
   module: {
     rules: [
       { test: /\.jsx$/, use: 'babel-loader' },
+      { test: /\.html$/, use: 'html-loader' },
     ],
   },
 
@@ -67,8 +68,8 @@ const productionConfig = merge([
   parts.minifyJavascript(),
   parts.loadImages({
     options: {
-      limit: 15000,
-      name: '[name].[ext]',
+      limit: 8192,
+      name: '[path][name].[ext]',
     },
   }),
   parts.compressFiles(),

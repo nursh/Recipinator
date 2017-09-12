@@ -21,7 +21,7 @@ const initialState = {
   main: {
     title: '',
     description: '',
-    imageUrl: '',
+    imageFile: '',
     prepTime: '',
     cookingTime: '',
   },
@@ -41,7 +41,7 @@ const reducer = (state, action) => {
       main: {
         title: action.fields.title,
         description: action.fields.description,
-        imageUrl: action.fields.imageUrl,
+        imageFile: action.fields.imageFile,
         prepTime: action.fields.prepTime,
         cookingTime: action.fields.cookingTime,
       },

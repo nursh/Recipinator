@@ -1,0 +1,103 @@
+[
+  {
+    "main": {
+      "title": "Oven Baked Sweet potatoes",
+      "description": "The healthy snack for sports fan and movie munchers. Perfect for binging on during games and movie nite without racking up the calories.",
+      "imageFile": "./images/sweet-potato.jpg",
+      "prepTime": "30",
+      "cookingTime": "60"
+    },
+    "directions": [
+      "Peel the sweet potatoes",
+      "Drench in olive oil",
+      "Add salt to taste",
+      "Add a pinch of Rosemary and Thyme",
+      "Bake in oven for 1hr at 220F/120C",
+      "Enjoy your snack"
+    ],
+    "ingredients": [
+      "Sweet potatoes",
+      "Rosemary",
+      "Thyme",
+      "Olive Oil"
+    ],
+    "keywords": [
+      "Snack",
+      "Healthy",
+      "Baked Sweet Potatoes"
+    ]
+  },
+  {
+    "main": {
+      "title": "Fried Rice",
+      "description": "A healthy snack ",
+      "imageFile": "./images/fried-rice.jpg",
+      "prepTime": "20",
+      "cookingTime": "100"
+    },
+    "directions": [
+      "Wash the rice in cold water to remove excess starch",
+      "Drench a pan in olive oil and take to medium high",
+      "Cut the chicken and add to sizzling pan until the chicken turns white",
+      "Add a pinch of Rosemary and Thyme",
+      "Add salt, black pepper and cayenne pepper to taste",
+      "Fry your tomato paste in olive oil for 20 minutes at medium heat",
+      "Add the washed rice to the fried paste",
+      "Add enough water to just cover the rice",
+      "Cook on low heat for 60 minutes",
+      "Cut the tomatoes and spring onions into small pieces and add to the rice mixture",
+      "Add the chicken to the rice mixture",
+      "Thoroughly mix everything together",
+      "Turn off the heat of the rice",
+      "Fry the eggs to your liking",
+      "Serve the rice and the eggs.",
+      "Enjoy"
+    ],
+    "ingredients": [
+      "Rice",
+      "Tomato paste",
+      "Eggs",
+      "Tomatoes",
+      "Olive Oil",
+      "Spring onions",
+      "Lettuce",
+      "Chicken",
+      "Rosemary",
+      "Thyme",
+      "Spring Onions",
+      "Salt",
+      "Pepper(black and cayenne)"
+    ],
+    "keywords": [
+      "Healthy",
+      "Cuisine"
+    ]
+  },
+  {
+    "main": {
+      "title": "Melon Berry Blast Smoothie",
+      "description": "Refreshing blast of watermelon and strawberry nutrients. Best for after workouts to rejuvenate the spirit or just to entertain the family.",
+      "imageFile": "./images/smoothie.jpg",
+      "prepTime": "10",
+      "cookingTime": "10"
+    },
+    "directions": [
+      "Crush some ice",
+      "Remove the seeds from the watermelon if any",
+      "Remove stem from strawberry",
+      "Put half a cup of milk and crushed ice in a blender",
+      "Add all the fruits and ice cream into the blender",
+      "Mix into a puree context"
+    ],
+    "ingredients": [
+      "Watermelon",
+      "Strawberries",
+      "Milk",
+      "Ice cream"
+    ],
+    "keywords": [
+      "Healthy",
+      "Fruits"
+    ]
+  }
+]
