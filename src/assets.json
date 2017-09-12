@@ -2,7 +2,7 @@
   {
     "main": {
       "title": "Oven Baked Sweet potatoes",
-      "description": "The healthy snack for sports fan and movie munchers. Perfect for binging on during games and movie nite without racking up the calories.",
+      "description": "The perfect healthy snack for sports fan and movie munchers. Delicious and safe for binging on during games and movie nite without racking up the calories.",
       "imageFile": "./images/sweet-potato.jpg",
       "prepTime": "30",
       "cookingTime": "60"
@@ -30,7 +30,7 @@
   {
     "main": {
       "title": "Fried Rice",
-      "description": "A healthy snack ",
+      "description": "A tasty cuisine carefully crafted to whet the appetite. This delicacy is designed to bring all the joys of summer together, leaving you wanting more.",
       "imageFile": "./images/fried-rice.jpg",
       "prepTime": "20",
       "cookingTime": "100"

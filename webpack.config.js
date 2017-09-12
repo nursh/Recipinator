@@ -28,6 +28,23 @@ const commonConfig = {
     rules: [
       { test: /\.jsx$/, use: 'babel-loader' },
       { test: /\.html$/, use: 'html-loader' },
+      { test: /\.css$/,
+        use: [{
+          loader: 'style-loader',
+        },
+        {
+          loader: 'css-loader',
+          options: { minimize: true },
+        },
+        ],
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]',
+        },
+      },
     ],
   },
 
