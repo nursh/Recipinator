@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Divider, Rating } from 'semantic-ui-react';
 
+
 function RecipeCard(props) {
   return (
     <Card centered raised>
-      <Image src={props.image} fluid />
+      <Image src={props.image} fluid disabled />
       <Card.Content>
         <Card.Header>
           {props.header}

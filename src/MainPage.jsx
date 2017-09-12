@@ -1,17 +1,29 @@
 import React from 'react';
-import { Sidebar } from 'semantic-ui-react';
+import recipes from './assets.json';
 
 import Header from './Header.jsx';
 // import RecipeForm from './Forms/RecipeForm.jsx';
-import RecipeCardsLayout from './RecipeCardsLayout.jsx';
+// import RecipeCardsLayout from './RecipeCardsLayout.jsx';
+import RecipePage from './RecipePage.jsx';
 
 function MainPage() {
+  const [, recipe] = recipes;
   return (
-    <Sidebar.Pusher>
+    <div>
       <Header />
-      <RecipeCardsLayout />
+      <RecipePage
+        title={recipe.main.title}
+        description={recipe.main.description}
+        image={require(`${recipe.main.imageFile}`)}
+        prepTime={recipe.main.prepTime}
+        cookingTime={recipe.main.cookingTime}
+        directions={recipe.directions}
+        keywords={recipe.keywords}
+        ingredients={recipe.ingredients}
+      />
+      {/* <RecipeCardsLayout /> */}
       {/* <RecipeForm /> */}
-    </Sidebar.Pusher>
+    </div>
   );
 }
 
