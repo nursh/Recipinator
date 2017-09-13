@@ -7,7 +7,6 @@ import recipes from './assets.json';
 
 
 function RecipeCardsLayout() {
-  // some form of mapping here to layout the cards;
   const RecipeCards = recipes.map(
     (recipe, id) => (<RecipeCard
       image={require(`${recipe.main.imageFile}`)}

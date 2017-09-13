@@ -6,7 +6,7 @@ import { Card, Image, Divider, Rating } from 'semantic-ui-react';
 function RecipeCard(props) {
   return (
     <Card centered raised>
-      <Image src={props.image} fluid disabled />
+      <Image src={props.image} fluid />
       <Card.Content>
         <Card.Header>
           {props.header}

@@ -16,7 +16,7 @@ exports.devServer = path => ({
     open: true,
     openPage: '',
     proxy: [{
-      context: ['/recipe'],
+      context: ['/rec'],
       target: 'http://localhost:3000',
     }],
   },

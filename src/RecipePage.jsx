@@ -17,10 +17,10 @@ const RecipePage = recipe => (
     <Grid>
 
       <Grid.Row>
-        <Grid.Column computer={6} mobile={16}>
+        <Grid.Column computer={6} tablet={12} mobile={16}>
           <Image src={recipe.image} size="large" shape="rounded" />
         </Grid.Column>
-        <Grid.Column computer={6} mobile={16}>
+        <Grid.Column computer={6} tablet={12} mobile={16}>
           <Header as="h2">{recipe.title}</Header>
           <Rating icon="heart" defaultRating={5} maxRating={5} size="large" />
           <Divider hidden />
@@ -33,8 +33,8 @@ const RecipePage = recipe => (
       </Grid.Row>
 
       <Grid.Row>
-        <Grid.Column computer={8} mobile={16}>
-          <Header as="h3" icon="time" content="Recipe Making Duration" />
+        <Grid.Column computer={8} tablet={12} mobile={16}>
+          <Header as="h3" icon="time" content="Recipe Prep and Cooking duration" />
           <Divider hidden />
           <Segment.Group horizontal>
             <Segment color="red">

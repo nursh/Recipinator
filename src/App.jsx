@@ -6,13 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './app.js';
 import MainPage from './MainPage.jsx';
 
-function App() {
-  return (
-    <MainPage />
-  );
-}
-
 render(
-  <App />,
+  <MainPage />,
   document.querySelector('#root'),
 );
