@@ -7,7 +7,7 @@ import Header from './Header.jsx';
 import RecipePage from './RecipePage.jsx';
 
 function MainPage() {
-  const [, recipe] = recipes;
+  const [recipe] = recipes;
   return (
     <div>
       <Header />
