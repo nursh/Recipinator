@@ -13,7 +13,7 @@ function MainPage() {
       <Header>
         <Switch>
           <Route exact path="/" component={RecipeCardsLayout} />
-          <Route path="/recipe/:id" component={RecipePage} />
+          <Route path="/recipe/:title" component={RecipePage} />
           <Route path="/recipinator" component={RecipeForm} />
         </Switch>
       </Header>
