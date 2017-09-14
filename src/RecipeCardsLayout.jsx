@@ -14,6 +14,7 @@ function RecipeCardsLayout() {
       description={recipe.main.description}
       key={id}
       recipe={recipe}
+      id={id}
     />),
   );
   return (

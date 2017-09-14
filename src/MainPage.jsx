@@ -11,9 +11,11 @@ function MainPage() {
   return (
     <Router>
       <Header>
-        <Route exact path="/" component={RecipeCardsLayout} />
-        <Route path="/recipe/:id" component={RecipePage} />
-        <Route path="/recipinator" component={RecipeForm} />
+        <Switch>
+          <Route exact path="/" component={RecipeCardsLayout} />
+          <Route path="/recipe/:id" component={RecipePage} />
+          <Route path="/recipinator" component={RecipeForm} />
+        </Switch>
       </Header>
     </Router>
   );

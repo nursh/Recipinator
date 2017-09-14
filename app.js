@@ -28,5 +28,7 @@ app.post('/recipe', (req, res) => {
   res.status(200).send({ item: 'success' });
 });
 
+app.get('*', (req, res) => res.sendFile(path.resolve('build/index.html')));
+
 
 app.listen(port, () => console.log('app is running'));

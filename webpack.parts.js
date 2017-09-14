@@ -15,10 +15,10 @@ exports.devServer = path => ({
     stats: 'errors-only',
     open: true,
     openPage: '',
-    proxy: [{
-      context: ['/rec'],
-      target: 'http://localhost:3000',
-    }],
+    // proxy: [{
+    //   context: ['/regal'],
+    //   target: 'http://localhost:3000',
+    // }],
   },
 });
 
