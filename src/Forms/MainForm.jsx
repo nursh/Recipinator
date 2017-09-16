@@ -70,6 +70,7 @@ class MainForm extends React.Component {
            <Field
              placeholder="Prep Time in mins"
              name="prepTime"
+             type="number"
              value={this.state.fields.prepTime}
              handleChange={this.handleChange}
            />
@@ -78,6 +79,7 @@ class MainForm extends React.Component {
              placeholder="Cooking Time in mins"
              name="cookingTime"
              value={this.state.fields.cookingTime}
+             type="number"
              handleChange={this.handleChange}
            />
         </Form.Group>

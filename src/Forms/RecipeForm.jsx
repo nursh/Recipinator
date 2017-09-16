@@ -30,12 +30,11 @@ class RecipeForm extends Component {
     alert('done');
 
     const recipe = store.getState();
-    console.log(recipe);
-    // this.postData(recipe);
+    this.postData(recipe);
   }
 
   postData = (recipe) => {
-    fetch('/recipe', {
+    fetch('/recipify', {
       method: 'post',
       body: JSON.stringify(recipe),
       headers: {

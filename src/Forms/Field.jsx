@@ -49,7 +49,7 @@ export default class Field extends Component {
       <Form.Field required>
         <label htmlFor={this.props.name}>{this.props.placeholder}</label>
         <input
-          type="text"
+          type={this.props.type || "text"}
           name={this.props.name}
           id={this.props.name}
           placeholder={this.props.placeholder}
@@ -68,8 +68,8 @@ export default class Field extends Component {
 
 Field.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   validate: PropTypes.func,
   handleChange: PropTypes.func,
+  type: PropTypes.string,
 };

@@ -8,15 +8,12 @@ function RecipeCard(props) {
   return (
     <Card centered raised>
       <Link
-        to={{
-          pathname: `/recipe/${props.header}`,
-          state: { recipe: props.recipe },
-        }}
+        to={`/recipe/${props.id}`}
         className="card"
       >
         <Image src={props.image} fluid />
         <Card.Content>
-          <Card.Header>
+          <Card.Header as="h4">
             {props.header}
           </Card.Header>
           <Card.Meta>
