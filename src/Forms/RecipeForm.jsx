@@ -30,6 +30,9 @@ class RecipeForm extends Component {
     alert('done');
 
     const recipe = store.getState();
+    const { main } = recipe;
+    main.totalTime = parseInt(main.cookingTime, 10) + parseInt(main.prepTime, 10);
+    recipe.main.totalTime = main.totalTime;
     this.postData(recipe);
   }
 
@@ -39,7 +42,7 @@ class RecipeForm extends Component {
       body: JSON.stringify(recipe),
       headers: {
         'Content-Type': 'application/json',
-      },
+      }
     })
     .then(response => response.json())
     .then(data => console.log(data))

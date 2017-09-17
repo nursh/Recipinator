@@ -26,11 +26,6 @@ class MainForm extends React.Component {
     });
   }
 
-  handleImage = (evt) => {
-    const { name, value } = evt.target;
-    this.handleChange({ name, value });
-  }
-
   handleSubmit = (evt) => {
     evt.preventDefault();
     store.dispatch({ type: 'MAIN', fields: this.state.fields });
@@ -53,18 +48,6 @@ class MainForm extends React.Component {
           value={this.state.fields.description}
           handleChange={this.handleChange}
         />
-        
-        <Form.Field required>
-          <label htmlFor="imageFile">Image File</label>
-          <Input
-            name="imageFile"
-            type="file"
-            id="imageFile"
-            accept="image/*"
-            onChange={this.handleImage}
-          />
-        </Form.Field>
-
 
         <Form.Group widths="equal">
            <Field

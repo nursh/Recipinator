@@ -6,6 +6,7 @@ const ms = require('ms');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 // const expressStaticGzip = require('express-static-gzip');
+const fileUpload = require('express-fileupload');
 const recipes = require('./assets.json');
 
 
@@ -23,6 +24,7 @@ app.use(express.static(files));
 // app.use('/', expressStaticGzip(files));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(fileUpload());
 
 
 app.get('/api/recipe/:recipeId', (req, res) => {
@@ -39,8 +41,8 @@ app.post('/recipify', (req, res) => {
   res.status(200).send({ recipe: req.body });
 });
 
-// app.get('*', (req, res) =>
-//   res.sendFile(path.resolve('build/index.html')),
-// );
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('build/index.html'));
+});
 
 app.listen(port, () => console.log('app is running'));
