@@ -16,7 +16,7 @@ exports.devServer = path => ({
     open: true,
     openPage: '',
     proxy: [{
-      context: ['/recipify', '/api'],
+      context: ['/recipify', '/api', '/upload'],
       target: 'http://localhost:3000',
     }],
   },

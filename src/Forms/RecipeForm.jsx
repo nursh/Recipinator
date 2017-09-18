@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import Loadable from 'react-loadable';
 import { Header, Grid, Container, Segment } from 'semantic-ui-react';
+import uuid from 'uuid/v4';
 
 import MainForm from './MainForm.jsx';
 import IngredientForm from './IngredientForm.jsx';
 import DirectionForm from './DirectionForm.jsx';
 import KeywordForm from './KeywordForm.jsx';
+import ImageUploadForm from './ImageUploadForm.jsx';
 import { store } from './formState';
 
 class RecipeForm extends Component {
   state = {
     page: 1,
+    id: uuid(),
   };
 
   nextPage = () => {
@@ -33,6 +36,7 @@ class RecipeForm extends Component {
     const { main } = recipe;
     main.totalTime = parseInt(main.cookingTime, 10) + parseInt(main.prepTime, 10);
     recipe.main.totalTime = main.totalTime;
+    recipe.id = this.state.id;
     this.postData(recipe);
   }
 
@@ -47,6 +51,8 @@ class RecipeForm extends Component {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(err => console.error(err));
+
+    this.nextPage();
   }
 
   render() {
@@ -88,6 +94,11 @@ class RecipeForm extends Component {
                   onPrevPage={this.prevPage}
                   onSubmit={this.handleSubmit}
                   keywords={keywords}
+                /> }
+
+                { this.state.page === 5 &&
+                  <ImageUploadForm
+                    id={this.state.id}
                 /> }
               </Segment>
             </Grid.Column>
