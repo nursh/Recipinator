@@ -21,7 +21,6 @@ const initialState = {
   main: {
     title: '',
     description: '',
-    imageUrl: '',
     prepTime: 0,
     cookingTime: 0,
     totalTime: 0,
@@ -29,16 +28,18 @@ const initialState = {
   directions: [],
   ingredients: [],
   keywords: [],
+  imageUrl: '',
 };
 
 
 const reducer = (state, action) => {
-  const { directions, ingredients, keywords, main } = state;
+  const { directions, ingredients, keywords, main, imageUrl } = state;
   if (action.type === 'MAIN') {
     return {
       directions,
       ingredients,
       keywords,
+      imageUrl,
       main: {
         title: action.fields.title,
         description: action.fields.description,
@@ -51,6 +52,7 @@ const reducer = (state, action) => {
       main,
       keywords,
       ingredients,
+      imageUrl,
       directions: [...directions, action.direction],
     };
   } else if (action.type === 'INGREDIENTS') {
@@ -58,6 +60,7 @@ const reducer = (state, action) => {
       main,
       keywords,
       directions,
+      imageUrl,
       ingredients: [...ingredients, action.ingredient],
     };
   } else if (action.type === 'KEYWORDS') {
@@ -65,7 +68,16 @@ const reducer = (state, action) => {
       main,
       directions,
       ingredients,
+      imageUrl,
       keywords: [...keywords, action.keyword],
+    };
+  } else if (action.type === 'URL') {
+    return {
+      main,
+      directions,
+      ingredients,
+      keywords,
+      imageUrl: action.imageUrl,
     };
   }
   return state;
