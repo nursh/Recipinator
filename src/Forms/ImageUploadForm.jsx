@@ -13,18 +13,9 @@ export default class ImageUploadForm extends React.Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
     alert('Image submitted');
-    console.log(this.state.imageFile);
-    const formData = new FormData();
-    formData.append('imageFile', this.state.imageFile);
-    formData.append('id', this.state.id);
-
-    fetch('/upload', {
-      method: 'post',
-      body: formData,
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
+    // Upload File to firebase storage
+    // get the url of the image after it has been saved
+    // dispatch to store to save url
   }
 
   handleImage = (evt) => {
@@ -49,6 +40,15 @@ export default class ImageUploadForm extends React.Component {
         <Form.Field>
           <Button
             color="teal"
+            floated="left"
+            labelPosition="left"
+            icon="arrow left"
+            onClick={this.props.onPrevPage}
+            content="Previous"
+            type="button"
+          />
+          <Button
+            color="teal"
             floated="right"
             content="Upload Image"
             type="submit"
@@ -56,6 +56,17 @@ export default class ImageUploadForm extends React.Component {
         </Form.Field>
 
         <Form.Field />
+
+        <Form.Field>
+          <Button
+            color="teal"
+            content="Create Recipe"
+            fluid
+            type="submit"
+            onClick={this.props.onSubmit}
+          />
+        </Form.Field>
+
       </Form>
     );
   }

@@ -91,6 +91,7 @@ class RecipeForm extends Component {
 
                 { this.state.page === 4 &&
                 <KeywordForm
+                  onPrevPage={this.prevPage}
                   onNextPage={this.nextPage}
                   keywords={keywords}
                 /> }

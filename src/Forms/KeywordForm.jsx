@@ -60,8 +60,8 @@ class KeywordForm extends React.Component {
             floated="right"
             labelPosition="right"
             icon="file text outline"
-            onClick={this.props.onSubmit}
-            content="Create Recipe"
+            onClick={this.props.onNextPage}
+            content="Next"
             type="button"
           />
         </Form.Field>
@@ -73,8 +73,8 @@ class KeywordForm extends React.Component {
 }
 
 KeywordForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   onPrevPage: PropTypes.func.isRequired,
+  onNextPage: PropTypes.func.isRequired,
 };
 
 export default KeywordForm;
