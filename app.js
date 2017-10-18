@@ -6,8 +6,8 @@ const ms = require('ms');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 // const expressStaticGzip = require('express-static-gzip');
-// const fileUpload = require('express-fileupload');
 const multer = require('multer');
+require('dotenv').config();
 const recipes = require('./assets.json');
 
 
@@ -53,7 +53,7 @@ app.post('/recipify', (req, res) => {
 
 app.post('/upload', upload.single('imageFile'), (req, res) => {
   console.log(req.body.id);
-  res.status(200).send({ success: 'success'});
+  res.status(200).send({ success: 'success' });
 });
 
 app.get('*', (req, res) => {

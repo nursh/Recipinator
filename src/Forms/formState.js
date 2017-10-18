@@ -21,6 +21,7 @@ const initialState = {
   main: {
     title: '',
     description: '',
+    imageUrl: '',
     prepTime: 0,
     cookingTime: 0,
     totalTime: 0,
