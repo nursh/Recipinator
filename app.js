@@ -7,12 +7,13 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 // const expressStaticGzip = require('express-static-gzip');
 require('dotenv').config();
-const recipes = require('./assets.json');
+// const recipes = require('./assets.json');
 const firebase = require('./firebaseConfig');
 
 
 const port = process.env.PORT || 3000;
 const app = express();
+const database = firebase.database();
 
 app.use(helmet());
 app.use(helmet.hsts({
@@ -28,17 +29,22 @@ app.use(bodyParser.json());
 
 
 app.get('/api/recipe/:recipeId', (req, res) => {
-  const id = req.params.recipeId;
-  const recipe = recipes[id];
-  res.json(recipe);
+  // const id = req.params.recipeId;
+  // const recipe = recipes[id];
+  // res.json(recipe);
 });
 
 app.get('/api/recipes', (req, res) => {
-  res.json(recipes);
+  database.ref('recipes').on('value',
+    (snapshot) => {
+      const recipes = Object.values(snapshot.val());
+      res.json(recipes);
+    },
+    () => console.log('Error occurred'),
+  );
 });
 
 app.post('/recipify', (req, res) => {
-  const database = firebase.database();
   database.ref(`recipes/${req.body.id}`).set({
     main: req.body.main,
     directions: req.body.directions,
