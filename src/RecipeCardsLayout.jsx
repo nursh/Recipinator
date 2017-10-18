@@ -19,13 +19,13 @@ class RecipeCardsLayout extends React.Component {
     fetch('/api/recipes')
       .then(res => res.json())
       .then(recipes => this.setState({ recipes }))
-      .catch(err => console.error('Something off'))
+      .catch(err => console.error(err))
   }
 
   render() {
     const RecipeCards = this.state.recipes.map(
       (recipe, id) => (<RecipeCard
-        image={require(`${recipe.main.imageFile}`)}
+        image={recipe.imageUrl}
         header={recipe.main.title}
         description={recipe.main.description}
         key={id}

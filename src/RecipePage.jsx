@@ -38,7 +38,7 @@ class RecipePage extends React.Component {
           <Grid>
             <Grid.Row>
               <Grid.Column computer={6} tablet={12} mobile={16}>
-                <Image src={require(`${recipe.main.imageFile}`)} size="large" shape="rounded" />
+                <Image src={recipe.main.imageFile} size="large" shape="rounded" />
               </Grid.Column>
               <Grid.Column computer={6} tablet={12} mobile={16}>
                 <Header as="h2">{recipe.main.title}</Header>
