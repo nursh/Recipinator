@@ -25,7 +25,7 @@ export default class ImageUploadForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit} encType="multipart/form-data">
+      <Form onSubmit={this.handleSubmit}>
         <Form.Field required>
           <label htmlFor="imageFile">Image File</label>
           <Input
@@ -51,6 +51,7 @@ export default class ImageUploadForm extends React.Component {
             color="teal"
             floated="right"
             content="Upload Image"
+            onClick={this.handleSubmit}
             type="submit"
           />
         </Form.Field>
@@ -62,7 +63,7 @@ export default class ImageUploadForm extends React.Component {
             color="teal"
             content="Create Recipe"
             fluid
-            type="submit"
+            type="button"
             onClick={this.props.onSubmit}
           />
         </Form.Field>
