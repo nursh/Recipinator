@@ -57,7 +57,7 @@ class RecipeForm extends Component {
 
   render() {
     const formData = store.getState();
-    const { main, ingredients, keywords, directions } = formData;
+    const { main, ingredients, keywords, directions, imageUrl } = formData;
     return (
       <Container>
         <Grid centered>
@@ -91,13 +91,15 @@ class RecipeForm extends Component {
 
                 { this.state.page === 4 &&
                 <KeywordForm
-                  onPrevPage={this.prevPage}
-                  onSubmit={this.handleSubmit}
+                  onNextPage={this.nextPage}
                   keywords={keywords}
                 /> }
 
                 { this.state.page === 5 &&
                   <ImageUploadForm
+                    onPrevPage={this.prevPage}
+                    onSubmit={this.handleSubmit}
+                    url={imageUrl}
                     id={this.state.id}
                 /> }
               </Segment>
