@@ -52,7 +52,7 @@ class RecipeForm extends Component {
     .then(data => console.log(data))
     .catch(err => console.error(err));
 
-    this.nextPage();
+    this.setState({ page: 1 });
   }
 
   render() {

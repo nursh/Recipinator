@@ -1,7 +1,11 @@
 import React from 'react';
 import { Form, Input, Button } from 'semantic-ui-react';
 import 'whatwg-fetch';
+import firebase from '../../firebaseConfig';
+import { store } from './formState';
 
+const storage = firebase.storage();
+const storageRef = storage.ref();
 
 export default class ImageUploadForm extends React.Component {
 
@@ -13,9 +17,25 @@ export default class ImageUploadForm extends React.Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
     alert('Image submitted');
-    // Upload File to firebase storage
-    // get the url of the image after it has been saved
-    // dispatch to store to save url
+    const { imageFile, id: fileId } = this.state;
+    const fileName = `images/${fileId}`;
+    const uploadTask = storageRef.child(fileName).put(imageFile);
+
+    uploadTask.on('state_changed',
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+      },
+      error => console.log('Error during upload'),
+      () => {
+        const downloadURL = uploadTask.snapshot.downloadURL;
+        store.dispatch({
+          type: 'URL',
+          imageUrl: downloadURL,
+        });
+      }
+    )
+
   }
 
   handleImage = (evt) => {

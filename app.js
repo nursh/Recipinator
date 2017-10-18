@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 // const expressStaticGzip = require('express-static-gzip');
 require('dotenv').config();
 const recipes = require('./assets.json');
+const firebase = require('./firebaseConfig');
 
 
 const port = process.env.PORT || 3000;
@@ -37,6 +38,14 @@ app.get('/api/recipes', (req, res) => {
 });
 
 app.post('/recipify', (req, res) => {
+  const database = firebase.database();
+  database.ref(`recipes/${req.body.id}`).set({
+    main: req.body.main,
+    directions: req.body.directions,
+    keywords: req.body.keywords,
+    imageUrl: req.body.imageUrl,
+    ingredients: req.body.ingredients,
+  });
   res.status(200).send({ recipe: req.body });
 });
 
