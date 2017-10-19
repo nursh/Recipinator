@@ -30,8 +30,6 @@ class RecipeForm extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    alert('done');
-
     const recipe = store.getState();
     const { main } = recipe;
     main.totalTime = parseInt(main.cookingTime, 10) + parseInt(main.prepTime, 10);
@@ -52,6 +50,7 @@ class RecipeForm extends Component {
     .then(data => console.log(data))
     .catch(err => console.error(err));
 
+    store.clearState();
     this.setState({ page: 1 });
   }
 

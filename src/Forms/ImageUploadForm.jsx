@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button } from 'semantic-ui-react';
+import { Form, Input, Button, Modal, Header, Icon } from 'semantic-ui-react';
 import 'whatwg-fetch';
 import firebase from '../../firebaseConfig';
 import { store } from './formState';
@@ -12,11 +12,11 @@ export default class ImageUploadForm extends React.Component {
   state = {
     imageFile: '',
     id: this.props.id,
+    modalOpen: false,
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    alert('Image submitted');
     const { imageFile, id: fileId } = this.state;
     const fileName = `images/${fileId}`;
     const uploadTask = storageRef.child(fileName).put(imageFile);
@@ -24,7 +24,6 @@ export default class ImageUploadForm extends React.Component {
     uploadTask.on('state_changed',
       (snapshot) => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
       },
       error => console.log('Error during upload'),
       () => {
@@ -33,10 +32,13 @@ export default class ImageUploadForm extends React.Component {
           type: 'URL',
           imageUrl: downloadURL,
         });
+        this.handleOpen();
       }
     )
-
   }
+
+  handleOpen = () => this.setState({ modalOpen: true });
+  handleClose = () => this.setState({ modalOpen: false });
 
   handleImage = (evt) => {
     const imageFile = evt.target.files[0];
@@ -88,6 +90,22 @@ export default class ImageUploadForm extends React.Component {
           />
         </Form.Field>
 
+        <Modal
+          open={this.state.modalOpen}
+          onClose={this.handleClose}
+          basic
+          size='small'
+        >
+          <Header icon='browser' content='Image Upload Successful' />
+          <Modal.Content>
+            <h3>Click "Create Recipe" to create your Recipe</h3>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button color='green' onClick={this.handleClose} inverted>
+              <Icon name='image' /> Got it
+            </Button>
+          </Modal.Actions>
+        </Modal>
       </Form>
     );
   }

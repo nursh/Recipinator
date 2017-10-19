@@ -9,10 +9,13 @@ function createStore(initialState, reducer) {
     listeners.map(listen => listen());
   };
 
+  const clearState = () => { state = initialState; };
+
   return {
     getState,
     subscribe,
     dispatch,
+    clearState,
   };
 }
 
