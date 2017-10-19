@@ -6,7 +6,8 @@
   "scripts": {
     "server": "nodemon app & npm start",
     "build": "webpack --env production & nodemon app",
-    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\""
+    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "start:prod": "forever app"
   },
   "author": "nur-sh",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "express-fileupload": "^0.2.0",
     "express-static-gzip": "^0.3.0",
     "firebase": "^4.5.2",
+    "forever": "^0.15.3",
     "helmet": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "ms": "^2.0.0",
@@ -67,5 +69,8 @@
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1",
     "webpack-merge": "^4.1.0"
+  },
+  "engines": {
+    "node": "8.0.0"
   }
 }
