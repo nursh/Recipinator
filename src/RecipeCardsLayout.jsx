@@ -30,7 +30,7 @@ class RecipeCardsLayout extends React.Component {
         description={recipe.main.description}
         key={id}
         recipe={recipe}
-        id={id}
+        id={recipe.id}
       />),
     );
     return (

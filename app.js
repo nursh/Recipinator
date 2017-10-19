@@ -5,9 +5,7 @@ const helmet = require('helmet');
 const ms = require('ms');
 const compression = require('compression');
 const bodyParser = require('body-parser');
-// const expressStaticGzip = require('express-static-gzip');
 require('dotenv').config();
-// const recipes = require('./assets.json');
 const firebase = require('./firebaseConfig');
 
 
@@ -23,15 +21,16 @@ app.use(morgan('tiny'));
 app.use(compression());
 const files = path.resolve(__dirname, 'build');
 app.use(express.static(files));
-// app.use('/', expressStaticGzip(files));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
 app.get('/api/recipe/:recipeId', (req, res) => {
-  // const id = req.params.recipeId;
-  // const recipe = recipes[id];
-  // res.json(recipe);
+  database.ref('recipes')
+    .child(`${req.params.recipeId}`)
+    .once('value', (snapshot) => {
+      res.json(snapshot.val());
+    });
 });
 
 app.get('/api/recipes', (req, res) => {
@@ -51,6 +50,7 @@ app.post('/recipify', (req, res) => {
     keywords: req.body.keywords,
     imageUrl: req.body.imageUrl,
     ingredients: req.body.ingredients,
+    id: req.body.id,
   });
   res.status(200).send({ recipe: req.body });
 });
