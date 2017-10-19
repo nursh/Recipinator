@@ -52,7 +52,7 @@ const commonConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      favicon: 'recipe.ico',
+      favicon: 'favicon.ico',
       minify: {
         collapseWhitespace: true,
       },
