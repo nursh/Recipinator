@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
 const helmet = require('helmet');
 const ms = require('ms');
 const compression = require('compression');
@@ -17,7 +16,6 @@ app.use(helmet());
 app.use(helmet.hsts({
   maxAge: ms('1y'),
 }));
-app.use(morgan('tiny'));
 app.use(compression());
 const files = path.resolve(__dirname, 'build');
 app.use(express.static(files));
