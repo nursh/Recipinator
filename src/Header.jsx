@@ -11,6 +11,10 @@ class Header extends React.Component {
     this.setState({ activeItem: name });
   }
 
+  handleSearch = (evt) => {
+
+  }
+
   render() {
     return (
       <div>
@@ -23,13 +27,6 @@ class Header extends React.Component {
             <Menu.Menu position="right">
               <Menu.Item name="create" href="/recipinator" active={this.state.activeItem === 'create'} onClick={this.handleItemClick}>
                 Create Recipe
-              </Menu.Item>
-              <Menu.Item>
-                <Input
-                  icon="search"
-                  placeholder="Search..."
-                  focus
-                />
               </Menu.Item>
             </Menu.Menu>
           </Menu>
