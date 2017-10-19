@@ -55,6 +55,10 @@ app.post('/recipify', (req, res) => {
   res.status(200).send({ recipe: req.body });
 });
 
+app.post('/search', (req, res) => {
+  res.send('Baby');
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('build/index.html'));
 });
