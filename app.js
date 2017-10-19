@@ -56,7 +56,7 @@ app.post('/recipify', (req, res) => {
 });
 
 app.post('/search', (req, res) => {
-  res.send('Baby');
+  res.send('This is it');
 });
 
 app.get('*', (req, res) => {
