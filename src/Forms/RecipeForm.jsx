@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Loadable from 'react-loadable';
 import { Header, Grid, Container, Segment } from 'semantic-ui-react';
 import uuid from 'uuid/v4';
 
