@@ -7,7 +7,7 @@
     "server": "nodemon app & npm start",
     "build": "webpack --env production & nodemon app",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "start:prod": "forever app"
+    "start:prod": "forever app.js"
   },
   "author": "nur-sh",
   "license": "ISC",
