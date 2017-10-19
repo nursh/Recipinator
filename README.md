@@ -6,12 +6,13 @@ A simple recipe book project
 
 ## Description 
 
-The project is a recipe book showing recipes, the user is able to create recipes and view them in the home page
+The project is a recipe book showing recipes, the user is able to create recipes and view them in the home page.
 
 ## Built with
 
 * React
 * Nodejs
+* PWA(Progressive Web Application) practices -> SWPrecache
 * Webpack
 * React-Semantic-UI
 * Firebase storage and database
